@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:mda/screens/details.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
@@ -357,6 +358,42 @@ class _DashboardState extends State<Dashboard> {
                 ),
               ),
             ],
+          ),
+
+          SizedBox(
+            height: 15.0,
+          ),
+
+          Divider(
+            thickness: 1.2,
+            color: Color.fromARGB(255, 241, 241, 241),
+          ),
+
+          GestureDetector(
+            onTap: () {
+              Fluttertoast.showToast(
+                  msg:
+                      "Completion rate measures the number of initiatives that had been completed within the portifolio",
+                  toastLength: Toast.LENGTH_LONG,
+                  gravity: ToastGravity.BOTTOM,
+                  timeInSecForIosWeb: 1,
+                  backgroundColor: Color(
+                    0xFFE3F2E5,
+                  ),
+                  textColor: Color(0xFF285E2A),
+                  fontSize: 14.0);
+            },
+            child: Padding(
+              padding: const EdgeInsets.only(left: 13.0),
+              child: Container(
+                alignment: Alignment.centerLeft,
+                child: Icon(
+                  Icons.info,
+                  size: 35.0,
+                  color: Color.fromARGB(255, 189, 195, 192),
+                ),
+              ),
+            ),
           ),
         ],
       ),
