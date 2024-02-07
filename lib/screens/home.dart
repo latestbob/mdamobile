@@ -371,17 +371,26 @@ class _DashboardState extends State<Dashboard> {
 
           GestureDetector(
             onTap: () {
-              Fluttertoast.showToast(
-                  msg:
-                      "Completion rate measures the number of initiatives that had been completed within the portifolio",
-                  toastLength: Toast.LENGTH_LONG,
-                  gravity: ToastGravity.BOTTOM,
-                  timeInSecForIosWeb: 1,
-                  backgroundColor: Color(
-                    0xFFE3F2E5,
-                  ),
-                  textColor: Color(0xFF285E2A),
-                  fontSize: 14.0);
+              showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    title: Text('Completion Rate'),
+                    content: SingleChildScrollView(
+                      child: Text(
+                          "Completion rate measures the number of initiatives that had been completed within the portifolio"),
+                    ),
+                    actions: <Widget>[
+                      TextButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: Text('Close'),
+                      ),
+                    ],
+                  );
+                },
+              );
             },
             child: Padding(
               padding: const EdgeInsets.only(left: 13.0),
